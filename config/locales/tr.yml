@@ -1,4 +1,7 @@
 tr:
+  time:
+    formats:
+      comments: "%B %d, %Y"
   activerecord:
     attributes:
       spree/address:
@@ -46,15 +49,9 @@ tr:
         special_instructions: Özel Tanımlar
         state: Bölge
         total: Toplam
+        payments: Ödemeler
+        payments.Kredi Kartı: Ödemeler
       spree/order/bill_address:
-        address1: Fatura adresi, cadde
-        city: Fatura adresi, şehir
-        firstname: Fatura adresi, ad
-        lastname: Fatura adresi, soyad
-        phone: Fatura adresi, telefon
-        state: Fatura adresi, bölge
-        zipcode: Fatura adresi, posta kodu
-      spree/order/ship_address:
         address1: Kargo adresi, cadde
         city: Kargo adresi, şehir
         firstname: Kargo adresi, ad
@@ -62,6 +59,14 @@ tr:
         phone: Kargo adresi, telefon
         state: Kargo adresi, bölge
         zipcode: Kargo adresi, posta kodu
+      spree/order/ship_address:
+        address1: Fatura adresi, cadde
+        city: Fatura adresi, şehir
+        firstname: Fatura adresi, ad
+        lastname: Fatura adresi, soyad
+        phone: Fatura adresi, telefon
+        state: Fatura adresi, bölge
+        zipcode: Fatura adresi, posta kodu
       spree/payment:
         amount: Miktar
       spree/payment_method:
@@ -129,10 +134,13 @@ tr:
         name: Ad
     errors:
       models:
+        spree/order:
+          attributes:
+            payments: Ödemeler
         spree/credit_card:
           attributes:
             base:
-              card_expired: 
+              card_expired: Kart süresi doldu
     models:
       spree/address: Adresler
       spree/country: Ülkeler
@@ -141,18 +149,24 @@ tr:
       spree/line_item: Kalem
       spree/order: Siparişler
       spree/payment: Ödemeler
+      spree/payment_method: 
       spree/product: Ürünler
+      spree/promotion: 
       spree/property: Özellikler
       spree/prototype: Prototipler
       spree/return_authorization: Geri İade Yetkileri
       spree/role: Roller
       spree/shipment: Kargolar
       spree/shipping_category: Kargo Kategorileri
+      spree/shipping_method: 
       spree/state: Bölgeler
+      spree/stock_location: 
+      spree/stock_transfer: 
       spree/tax_category: Vergi Sınıfları
       spree/tax_rate: Vergi Oranları
       spree/taxon: Gruplar
       spree/taxonomy: Gruplandırmalar
+      spree/tracker: 
       spree/user: Kullanıcılar
       spree/variant: Çeşitler
       spree/zone: Bölgeler
@@ -317,18 +331,18 @@ tr:
     back_to_trackers_list: İzleyici Listesine Geri Dön
     back_to_users_list: Kullanıcı Listesine Geri Dön
     back_to_zones_list: Bölgeler Listesine Geri Dön
-    backorderable: İade Edilebilir
-    backorders_allowed: 
+    backorderable: Önsipariş Verilebilir mi?
+    backorders_allowed: Önsipariş Verilebilir
     balance_due: Kalan Bakiye
-    bill_address: Fatura Adresi
+    bill_address: Kargo Adresi
     billing: Fatura
-    billing_address: Fatura Adresi
+    billing_address: Kargo Adresi
     both: Her ikisi
     calculator: Hesap Makinesi
     calculator_settings_warning: Hesaplayıcı tipini değiştirirseniz, Hesap makinesi ayarlarını düzenleyebilmek için önce yaptığınız değişiklikleri kaydetmelisiniz.
     cancel: iptal
     cannot_create_payment_without_payment_methods: Ödeme yöntemi tanımlanmadan bir ödeme oluşturamazsınız.
-    cannot_create_returns: ! 'Bu sipariş kargolanmış bir ürün içermediğinden geri dönderilemez. '
+    cannot_create_returns: ! 'Bu sipariş kargolanmış bir ürün içermediğinden geri döndürülemez. '
     cannot_perform_operation: Bu işlem gerçekleştirilemez.
     cannot_set_shipping_method_without_address: Müşteri detayları belirtilmedikçe kargo yöntemi seçilemez.
     capture: Yakala
@@ -368,10 +382,230 @@ tr:
     country_based: Ülke Tabanlı
     country_name: Ad
     country_names:
-      CA: Kanada
-      FRA: Fransa
-      ITA: İtalya
+      AF: Afganistan
+      DE: Almanya
+      AD: Andorra
+      AO: Angola
+      AG: Antigua ve Barbuda
+      AR: Arjantin
+      AL: Arnavutluk
+      AW: Aruba
+      AU: Avustralya
+      AT: Avusturya
+      AZ: Azerbaycan
+      BS: Bahamalar
+      BH: Bahreyn
+      BD: Bangladeş
+      BB: Barbados
+      EH: Batı Sahra (MA)
+      BE: Belçika
+      BZ: Belize
+      BJ: Benin
+      BM: Bermuda
+      BY: Beyaz Rusya
+      BT: Bhutan
+      AE: Birleşik Arap Emirlikleri
       US: Amerika Birleşik Devletleri
+      GB: Birleşik Krallık
+      BO: Bolivya
+      BA: Bosna-Hersek
+      BW: Botsvana
+      BR: Brezilya
+      BN: Bruney
+      BG: Bulgaristan
+      BF: Burkina Faso
+      BI: Burundi
+      TD: Çad
+      KY: Cayman Adaları
+      GI: Cebelitarık (GB)
+      CZ: Çek Cumhuriyeti
+      DZ: Cezayir
+      DJ: Cibuti
+      CN: Çin
+      DK: Danimarka
+      CD: Demokratik Kongo Cumhuriyeti
+      TL: Doğu Timor
+      DO: Dominik Cumhuriyeti
+      DM: Dominika
+      EC: Ekvador
+      GQ: Ekvator Ginesi
+      SV: El Salvador
+      ID: Endonezya
+      ER: Eritre
+      AM: Ermenistan
+      MF: Ermiş Martin (FR)
+      EE: Estonya
+      ET: Etiyopya
+      FK: Falkland Adaları
+      FO: Faroe Adaları (DK)
+      MA: Fas
+      FJ: Fiji
+      CI: Fildişi Sahili
+      PH: Filipinler
+      FI: Finlandiya
+      FR: Fransa
+      GF: Fransız Guyanası (FR)
+      PF: Fransız Polinezyası (FR)
+      GA: Gabon
+      GM: Gambiya
+      GH: Gana
+      GN: Gine
+      GW: Gine Bissau
+      GD: Grenada
+      GL: Grönland (DK)
+      GP: Guadeloupe (FR)
+      GT: Guatemala
+      GG: Guernsey (GB)
+      ZA: Güney Afrika
+      KR: Güney Kore
+      GE: Gürcistan
+      GY: Guyana
+      HT: Haiti
+      IN: Hindistan
+      HR: Hırvatistan
+      NL: Hollanda
+      HN: Honduras
+      HK: Hong Kong (CN)
+      VG: İngiliz Virjin Adaları
+      IQ: Irak
+      IR: İran
+      IE: İrlanda
+      ES: İspanya
+      IL: İsrail
+      SE: İsveç
+      CH: İsviçre
+      IT: İtalya
+      IS: İzlanda
+      JM: Jamaika
+      JP: Japonya
+      JE: Jersey (GB)
+      KH: Kamboçya
+      CM: Kamerun
+      CA: Kanada
+      ME: Karadağ
+      QA: Katar
+      KZ: Kazakistan
+      KE: Kenya
+      CY: Kıbrıs
+      KG: Kırgızistan
+      KI: Kiribati
+      CO: Kolombiya
+      KM: Komorlar
+      CG: Kongo Cumhuriyeti
+      KV: Kosova (RS)
+      CR: Kosta Rika
+      CU: Küba
+      KW: Kuveyt
+      KP: Kuzey Kore
+      LA: Laos
+      LS: Lesoto
+      LV: Letonya
+      LR: Liberya
+      LY: Libya
+      LI: Lihtenştayn
+      LT: Litvanya
+      LB: Lübnan
+      LU: Lüksemburg
+      HU: Macaristan
+      MG: Madagaskar
+      MO: Makao (CN)
+      MK: Makedonya
+      MW: Malavi
+      MV: Maldivler
+      MY: Malezya
+      ML: Mali
+      MT: Malta
+      IM: Man Adası (GB)
+      MH: Marshall Adaları
+      MQ: Martinique (FR)
+      MU: Mauritius
+      YT: Mayotte (FR)
+      MX: Meksika
+      FM: Mikronezya
+      EG: Mısır
+      MN: Moğolistan
+      MD: Moldova
+      MC: Monako
+      MR: Moritanya
+      MZ: Mozambik
+      MM: Myanmar
+      NA: Namibya
+      NR: Nauru
+      NP: Nepal
+      NE: Nijer
+      NG: Nijerya
+      NI: Nikaragua
+      NO: Norveç
+      CF: Orta Afrika Cumhuriyeti
+      UZ: Özbekistan
+      PK: Pakistan
+      PW: Palau
+      PA: Panama
+      PG: Papua Yeni Gine
+      PY: Paraguay
+      PE: Peru
+      PL: Polonya
+      PT: Portekiz
+      PR: Porto Riko (US)
+      RE: Réunion (FR)
+      RO: Romanya
+      RW: Ruanda
+      RU: Rusya
+      BL: Saint Barthélemy (FR)
+      KN: Saint Kitts ve Nevis
+      LC: Saint Lucia
+      PM: Saint Pierre ve Miquelon (FR)
+      VC: Saint Vincent ve Grenadinler
+      WS: Samoa
+      SM: San Marino
+      ST: São Tomé ve Príncipe
+      SN: Senegal
+      SC: Seyşeller
+      SL: Sierra Leone
+      CL: Şili
+      SG: Singapur
+      RS: Sırbistan
+      SK: Slovakya Cumhuriyeti
+      SI: Slovenya
+      SB: Solomon Adaları
+      SO: Somali
+      SS: South Sudan
+      SJ: Spitsbergen (NO)
+      LK: Sri Lanka
+      SD: Sudan
+      SR: Surinam
+      SY: Suriye
+      SA: Suudi Arabistan
+      SZ: Svaziland
+      TJ: Tacikistan
+      TZ: Tanzanya
+      TH: Tayland
+      TW: Tayvan
+      TG: Togo
+      TO: Tonga
+      TT: Trinidad ve Tobago
+      TN: Tunus
+      TR: Türkiye
+      TM: Türkmenistan
+      TC: Turks ve Caicos
+      TV: Tuvalu
+      UG: Uganda
+      UA: Ukrayna
+      OM: Umman
+      JO: Ürdün
+      UY: Uruguay
+      VU: Vanuatu
+      VA: Vatikan
+      VE: Venezuela
+      VN: Vietnam
+      WF: Wallis ve Futuna (FR)
+      YE: Yemen
+      NC: Yeni Kaledonya (FR)
+      NZ: Yeni Zelanda
+      CV: Yeşil Burun Adaları
+      GR: Yunanistan
+      ZM: Zambiya
+      ZW: Zimbabve
     coupon: Kupon
     coupon_code: Kupon kodu
     coupon_code_already_applied: Girdiğiniz kupon kodu bu siparişe önceden uygulandı
@@ -549,7 +783,7 @@ tr:
       operators:
         gt: büyüktür
         gte: büyük ya da eşittir
-    items_cannot_be_shipped: 
+    items_cannot_be_shipped: "Seçtiğiniz ülkeye gönderim yapılamamaktadır"
     jirafe: Jirafe
     landing_page_rule:
       path: Yol
@@ -628,9 +862,10 @@ tr:
     no_actions_added: Hiçbir eylem eklenmemiş
     no_orders_found: Hiçbir sipariş bulunamadı
     no_payment_methods_found: Hiçbir ödeme yöntemi bulunamadı
-    no_pending_payments: 
+    no_pending_payments: Bekleyen ödeme bulunamadı
     no_products_found: Hiçbir Ürün Bulunamadı
     no_promotions_found: Hiçbir promosyon bulunamadı
+    no_resource_found: 
     no_results: Sonuç yok
     no_rules_added: Hiçbir kural eklenmedi
     no_shipping_methods_found: Hiçbir kargo yöntemi bulunamadı
@@ -654,7 +889,7 @@ tr:
     open: Açık
     open_all_adjustments: Tüm Kredileri Aç
     option_type: Seçenek Tipi
-    option_type_placeholder: 
+    option_type_placeholder:  Bir Seçenek Tipi Seçiniz
     option_types: Seçenek Tipleri
     option_value: Seçenek Değeri
     option_values: Seçenek Değerleri
@@ -719,6 +954,7 @@ tr:
     payment: Ödeme
     payment_information: Ödeme Bilgisi
     payment_method: Ödeme Yöntemi
+    payment_method_not_supported: 
     payment_methods: Ödeme Yöntemleri
     payment_processing_failed: Ödeme gerçekleştirilemedi, lütfen girmiş olduğunuz bilgileri kontrol ediniz
     payment_processor_choose_banner_text: Ödeme işlemi seçmekte zorlanıyorsanız, lütfen takip eden bağlantıya tıklayınız
@@ -891,12 +1127,13 @@ tr:
     shipments: Kargolamalar
     shipped: Kargolanan
     shipping: Kargolama
-    shipping_address: Kargo Adresi
+    shipping_address: Fatura Adresi
     shipping_categories: Kargo Kategorileri
     shipping_category: Kargo Kategorisi
     shipping_flat_rate_per_item: Paketteki her bir ürün için sabit oran
     shipping_flat_rate_per_order: Sabit oran
     shipping_flexible_rate: Paketteki her bir ürün için değişken oran
+    shipping_info: Teslimat Süresi
     shipping_instructions: Kargo Aşamaları
     shipping_method: ! 'Kargo Yöntemi '
     shipping_methods: Kargo Yöntemleri
@@ -1001,7 +1238,7 @@ tr:
     update: Güncelle
     updating: Güncelleme
     usage_limit: Kullanım Limiti
-    use_billing_address: Fatura Adresini Kullan
+    use_billing_address: Fatura Adresi Olarak Kullan
     use_new_cc: Yeni bir kart kullan
     use_s3: Resimler için Amazon S3 kullan
     user: Kullanıcı
@@ -1017,7 +1254,7 @@ tr:
       must_be_non_negative: negatif olmayan bir değer olmalıdır
     value: Değer
     variant: Değişken
-    variant_placeholder: 
+    variant_placeholder: Bir varyant seçin
     variants: Değişkenler
     version: Sürüm
     void: Geçersiz
